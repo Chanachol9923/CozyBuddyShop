@@ -1,0 +1,30 @@
+{
+  "categories": [
+    { "id": "1", "name": "Dolls", "image": "/images/cat-dolls.jpg" },
+    { "id": "2", "name": "Mini Buddies", "image": "/images/cat-mini-buddies.jpg" },
+    { "id": "3", "name": "Clothing & Accessories", "image": "/images/cat-clothing.jpg" }
+  ],
+  "products": [
+    { "id": "1", "name": "Clover Bunny", "description": "ตุ๊กตากระต่ายแฮนด์เมด ขนนุ่ม ปลอดภัยสำหรับทุกวัย", "price": 2000, "image": "/images/clover-bunny.jpg", "type": "doll", "categoryId": "1", "isBestSeller": true },
+    { "id": "2", "name": "Willow Lamb", "description": "ตุ๊กตาลูกแกะผ้าขนนุ่ม กอดสบาย", "price": 2200, "image": "/images/willow-lamb.jpg", "type": "doll", "categoryId": "1", "isBestSeller": true },
+    { "id": "3", "name": "Hazel Fawn", "description": "ตุ๊กตากวางน้อยตาหวาน ผ้าสีน้ำตาลอบอุ่น", "price": 2500, "image": "/images/hazel-fawn.jpg", "type": "doll", "categoryId": "1", "isBestSeller": true },
+    { "id": "4", "name": "Maple Bear", "description": "ตุ๊กตาหมีน้อยสีเมเปิล เพื่อนคู่ใจยามหลับ", "price": 2300, "image": "/images/maple-bear.jpg", "type": "doll", "categoryId": "1", "isBestSeller": false },
+    { "id": "5", "name": "Fern Fox", "description": "ตุ๊กตาจิ้งจอกจากป่าเฟิร์น หางฟู", "price": 2400, "image": "/images/fern-fox.jpg", "type": "doll", "categoryId": "1", "isBestSeller": false },
+    { "id": "6", "name": "Acorn Mouse", "description": "ตุ๊กตาหนูน้อยขนาดมินิ พกพาง่าย", "price": 1200, "image": "/images/acorn-mouse.jpg", "type": "doll", "categoryId": "2", "isBestSeller": false },
+    { "id": "7", "name": "Robin Bird", "description": "ตุ๊กตานกโรบินตัวจิ๋ว ขนาดมินิ", "price": 900, "image": "/images/robin-bird.jpg", "type": "doll", "categoryId": "2", "isBestSeller": false },
+    { "id": "8", "name": "Petal Bonnet", "description": "หมวกบอนเน็ตลายกลีบดอกไม้ สำหรับตุ๊กตา", "price": 650, "image": "/images/petal-bonnet.jpg", "type": "costume", "categoryId": "3", "isBestSeller": false },
+    { "id": "9", "name": "Linen Overalls", "description": "ชุดเอี๊ยมผ้าลินิน สำหรับตุ๊กตา", "price": 750, "image": "/images/linen-overalls.jpg", "type": "costume", "categoryId": "3", "isBestSeller": false },
+    { "id": "10", "name": "Tulle Ballet Dress", "description": "ชุดเดรสบัลเลต์ผ้าทูล สำหรับตุ๊กตา", "price": 850, "image": "/images/tulle-ballet-dress.jpg", "type": "costume", "categoryId": "3", "isBestSeller": false },
+    { "id": "11", "name": "Felt Crown", "description": "มงกุฎผ้าสักหลาด สำหรับตุ๊กตา", "price": 390, "image": "/images/felt-crown.jpg", "type": "costume", "categoryId": "3", "isBestSeller": false },
+    { "id": "12", "name": "Knit Scarf", "description": "ผ้าพันคอไหมพรมถัก อบอุ่น สำหรับตุ๊กตา", "price": 420, "image": "/images/knit-scarf.jpg", "type": "costume", "categoryId": "3", "isBestSeller": false },
+    { "id": "13", "name": "Flower Crown", "description": "มงกุฎดอกไม้ทำมือ สำหรับตุ๊กตา", "price": 380, "image": "/images/flower-crown.jpg", "type": "costume", "categoryId": "3", "isBestSeller": false },
+    { "id": "14", "name": "Gingham Dress", "description": "ชุดเดรสลายตาราง สำหรับตุ๊กตา", "price": 800, "image": "/images/gingham-dress.jpg", "type": "costume", "categoryId": "3", "isBestSeller": false },
+    { "id": "15", "name": "Woven Basket", "description": "ตะกร้าสานจิ๋ว ของแต่งตัวสำหรับตุ๊กตา", "price": 450, "image": "/images/woven-basket.jpg", "type": "costume", "categoryId": "3", "isBestSeller": false },
+    { "id": "16", "name": "Rain Cape", "description": "เสื้อคลุมกันฝนสีเหลือง สำหรับตุ๊กตา", "price": 700, "image": "/images/rain-cape.jpg", "type": "costume", "categoryId": "3", "isBestSeller": false },
+    { "id": "17", "name": "Leather Booties", "description": "รองเท้าบูทหนังจิ๋ว สำหรับตุ๊กตา", "price": 500, "image": "/images/leather-booties.jpg", "type": "costume", "categoryId": "3", "isBestSeller": false },
+    { "id": "18", "name": "Pajama Set", "description": "ชุดนอนผ้าฝ้ายนุ่ม สำหรับตุ๊กตา", "price": 780, "image": "/images/pajama-set.jpg", "type": "costume", "categoryId": "3", "isBestSeller": false },
+    { "id": "19", "name": "Ruffle Collar", "description": "ปกระบายผ้าฝ้าย สำหรับตุ๊กตา", "price": 350, "image": "/images/ruffle-collar.jpg", "type": "costume", "categoryId": "3", "isBestSeller": false },
+    { "id": "20", "name": "Mushroom Hat", "description": "หมวกเห็ดสีแดงจุดขาว ธีมป่าเทพนิยาย", "price": 420, "image": "/images/mushroom-hat.jpg", "type": "costume", "categoryId": "3", "isBestSeller": false },
+    { "id": "21", "name": "Clover Apron", "description": "ผ้ากันเปื้อนลายใบโคลเวอร์ สำหรับตุ๊กตา", "price": 600, "image": "/images/clover-apron.jpg", "type": "costume", "categoryId": "3", "isBestSeller": false }
+  ]
+}
