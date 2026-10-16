@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cozy Buddy | About Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600;700&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="logo">Cozy Buddy</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="diy.html">Custom Pack</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
+        </ul>
+      </nav>
+      <a href="cart.html" class="cart-icon" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.4 11.2a1.5 1.5 0 0 0 1.5 1.2h8.9a1.5 1.5 0 0 0 1.5-1.1L21 7H6"/></svg>
+        <span class="cart-icon__badge">5</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 40px;">
+
+    <!-- ===== Who are we? ===== -->
+    <section class="about-card">
+      <div class="split">
+        <div class="who-text">
+          <h2>Who are we?</h2>
+          <p>
+            Cozy Buddy เป็นแบรนด์จำหน่ายตุ๊กตาและสินค้าที่เกี่ยวข้อง เช่น เสื้อผ้าสำหรับตุ๊กตาและ Accessories
+            แฮนด์เมดที่ผลิตโดยช่างฝีมือท้องถิ่น ออกแบบมาให้อ่อนโยน ปลอดภัยสำหรับทุกวัยตั้งแต่ทารกแรกเกิด
+            และเป็นมิตรต่อสิ่งแวดล้อม ดีไซน์ในธีมป่าในเทพนิยายสมัยก่อน ให้ความรู้สึกเหมือนหลุดเข้าไปในหนังสือนิทาน
+          </p>
+          <div class="contact-row">
+            <a href="mailto:hello@cozybuddy.com" class="btn">Contact us</a>
+            <div class="contact-info">
+              Tel. 090-000-0000<br>
+              hello@cozybuddy.com
+            </div>
+          </div>
+        </div>
+        <div class="ph">img</div>
+      </div>
+    </section>
+
+    <!-- ===== What we do? ===== -->
+    <section class="what-block">
+      <div class="split split--reverse">
+        <div class="ph">img</div>
+        <div class="what-text">
+          <h2>What we do?</h2>
+          <p>
+            ชื่อแบรนด์ Cozy Buddy มีความหมายว่า <strong>“เพื่อนที่แสนอบอุ่น”</strong>
+            เราตั้งใจสร้างตุ๊กตาที่เป็นมากกว่าของเล่น แต่เป็นเพื่อนคู่ใจของเด็กๆ
+            ทุกตัวถูกเย็บด้วยมือจากวัสดุธรรมชาติ พร้อมเสื้อผ้าและเครื่องประดับที่เปลี่ยนได้
+            ให้เด็กๆ ได้สร้างเรื่องราวและจินตนาการในแบบของตัวเอง
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Our Team ===== -->
+    <section class="about-card">
+      <div class="ph team-banner">img</div>
+      <h2>Our Team!</h2>
+      <p class="muted">สมาชิกกลุ่มผู้พัฒนาเว็บไซต์ Cozy Buddy — CS319 Mini Project 2</p>
+
+      <div class="team-grid">
+        <article class="member">
+          <div class="ph">img</div>
+          <h3>Warantorn Chongkolrat</h3>
+          <div class="member__nick">(Muse)</div>
+          <div class="member__id">1660701101</div>
+          <span class="member__role">Source data, Mock API, Document</span>
+        </article>
+        <article class="member">
+          <div class="ph">img</div>
+          <h3>Benya Pengkhuean</h3>
+          <div class="member__nick">(Ben)</div>
+          <div class="member__id">1660701341</div>
+          <span class="member__role">Frontend, Design</span>
+        </article>
+        <article class="member">
+          <div class="ph">img</div>
+          <h3>Chanachol Polketkit</h3>
+          <div class="member__nick">(Q)</div>
+          <div class="member__id">1660705755</div>
+          <span class="member__role">Backend</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Data sources ===== -->
+    <section class="what-block sources">
+      <h2>แหล่งที่มาของข้อมูล</h2>
+      <ul>
+        <li>ข้อมูลสินค้ามาจาก Mock REST API ที่ทีมจัดทำขึ้นเองด้วย JSON Server</li>
+        <li>ข้อมูลสินค้าและแรงบันดาลใจต้นฉบับ :
+          <a href="https://hazelvillage.com/" target="_blank" rel="noopener">https://hazelvillage.com/</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <a href="index.html" class="logo">Cozy Buddy</a>
+        <p>“เพื่อนที่แสนอบอุ่น”</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="diy.html">Custom Pack</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Tel. 090-000-0000</li>
+          <li>hello@cozybuddy.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">© 2026 Cozy Buddy — CS319 Mini Project 2</div>
+  </footer>
+
+</body>
+</html>
