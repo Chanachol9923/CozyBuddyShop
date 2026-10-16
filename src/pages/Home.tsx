@@ -19,16 +19,15 @@ export default function Home(){
 
       {data.map((category) => (
         
-
         <div key={category.id}>
           <br></br>
-
+          <p>======================================</p>
           <p>{category.name}</p>
           <p>{category.image}</p>
-          
+
           <button>R</button>
 
-          <br></br><br></br>
+          <br></br><p>======================================</p><br></br>
 
 
         </div>

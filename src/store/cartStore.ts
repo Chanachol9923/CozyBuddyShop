@@ -33,6 +33,7 @@ export const useCartStore = create<CartState>()(
             }
           }
 
+
           if (found === false) {
             newItems.push({ productId: productId, quantity: quantity })
           }
@@ -55,7 +56,8 @@ export const useCartStore = create<CartState>()(
           return { items:newItems }
         }),
 
-
+        
+//ไว้กด +-ของ
       setQuantity: (productId, quantity) =>
         set((state) => {
           const newItems: CartItem[]= []
@@ -63,8 +65,10 @@ export const useCartStore = create<CartState>()(
           for (const item of state.items) {
             if (item.productId === productId) {
               newItems.push({ productId: item.productId, quantity: quantity })
+              
             } else {
               newItems.push(item)
+
             }
           }
 
@@ -72,6 +76,7 @@ export const useCartStore = create<CartState>()(
         }),
 
       clear: () => set({ items: [] }),
+      
     }),
     { name:'cozybuddy-cart' } 
   )

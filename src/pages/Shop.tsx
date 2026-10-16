@@ -14,7 +14,7 @@ export default function Shop() {
 
 
   if (!data) {
-    return <ul></ul>
+    return <ul>Errorrrrrrrrrrrrrrrrrrr</ul>
   }
 
   return (
