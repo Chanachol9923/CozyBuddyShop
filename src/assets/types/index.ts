@@ -19,17 +19,27 @@ export interface ProductFromAPI {
 
 }
 
-export interface DiySet{
-    dollId: string|null;
-    costumeId: string[];
-
-}
 
 export interface CartItem{
     productId: string;
     quantity: number;
 
 }
+
+
+
+export interface DiySet{
+    dollId: string|null;
+    costumeIds: string[];
+
+}
+
+export interface CartDiySet {
+    id:string
+    dollId: string
+    costumeIds: string[]
+}
+
 export const DIY_COSTUME_COUNT =4;
 export const DIY_DISCOUNT_PERCENT = 20;
 

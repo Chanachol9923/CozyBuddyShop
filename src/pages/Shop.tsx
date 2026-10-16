@@ -9,7 +9,7 @@ export default function Shop() {
   }
 
   if (isError) {
-    return <p>Error kub eiei - connect api maidai!</p>
+    return <p>Error kub eiei - connect api maidai!, try npm run api!</p>
   }
 
 
