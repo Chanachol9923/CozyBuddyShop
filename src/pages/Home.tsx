@@ -9,11 +9,12 @@ import HomeHero from "../components/home/HomeHero"
 import PromoBanner from "../components/home/PromoBanner"
 
 const CATEGORY_CARDS: { id: string; buttonLabel: string; to: string; imageUrl: string; imageClassName?: string }[] = [
-  { id: "dolls", buttonLabel: "Choose Your Dolls", to: "/shop", imageUrl: categoryDoll },
+  // ?sort=... บอกหน้า shop ว่าให้ Sort by เลือกชนิดไหนไว้ตั้งแต่แรก
+  { id: "dolls", buttonLabel: "Choose Your Dolls", to: "/shop?sort=doll", imageUrl: categoryDoll },
   {
     id: "animals",
     buttonLabel: "Choose Your Animals",
-    to: "/shop",
+    to: "/shop?sort=animal",
     imageUrl: categoryAnimal,
     // ตุ๊กตาในรูปนี้ตัวเล็ก ซูมเข้า 1.3 เท่า (จุดกลางซูมอยู่ที่ตัวตุ๊กตา) ให้ดูใหญ่เท่ารูป doll
     imageClassName: "scale-130 origin-[47%_45%]",
@@ -21,7 +22,8 @@ const CATEGORY_CARDS: { id: string; buttonLabel: string; to: string; imageUrl: s
   {
     id: "costume&accessory",
     buttonLabel: "Choose Your Costume & Accessories",
-    to: "/shop",
+    // เครื่องหมาย & ใน URL ต้องเขียนเป็น %26 ไม่งั้นจะถูกตัดเป็นพารามิเตอร์ใหม่
+    to: "/shop?sort=costume%26accessory",
     imageUrl: categoryCostume,
   },
 ]

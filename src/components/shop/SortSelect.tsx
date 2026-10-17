@@ -14,7 +14,7 @@ interface SortSelectProps {
 export default function SortSelect({ value, onChange }: SortSelectProps) {
   return (
     <label className="flex items-center gap-3">
-      <span className="text-xs font-bold tracking-wider text-cozy-green-dark uppercase">Sort by</span>
+      <span className="text-xs font-bold tracking-wider text-cozy-green-dark uppercase">Filter by</span>
       <span className="relative">
         <select
           value={value}

@@ -67,7 +67,7 @@ export default function Diy() {
   if (isError || !data) {
     return (
       <section className="mx-auto max-w-xl px-4 py-16 text-center">
-        <p className="mb-4 text-cozy-muted">โหลดสินค้าไม่สำเร็จ กรุณาลองใหม่อีกครั้ง</p>
+        <p className="mb-4 text-cozy-muted">Couldn't load products. Please try again.</p>
         <button type="button" onClick={() => refetch()} className={buttonClass("md", "green")}>
           Try again
         </button>
@@ -163,16 +163,16 @@ export default function Diy() {
   if (added) {
     hint = (
       <p role="status" className="mt-3 text-sm text-cozy-green-dark">
-        เพิ่มเซตลงตะกร้าแล้ว{" "}
+        Set added to cart.{" "}
         <Link to="/cart" className="font-semibold underline">
-          ดูตะกร้า
+          View cart
         </Link>
       </p>
     )
   } else if (!canAdd) {
     hint = (
       <p className="mt-3 text-sm text-cozy-muted">
-        เลือกตุ๊กตา 1 ตัว และชุด {DIY_COSTUME_COUNT} ชุด ({costumeIds.length}/{DIY_COSTUME_COUNT})
+        Choose 1 doll and {DIY_COSTUME_COUNT} costumes ({costumeIds.length}/{DIY_COSTUME_COUNT})
       </p>
     )
   }
@@ -184,16 +184,14 @@ export default function Diy() {
       <div className="mb-10">
         <h1 className="mb-3 text-3xl font-medium text-cozy-green-dark sm:text-4xl">DIY Set</h1>
         <p className="mb-4 text-cozy-muted">
-          จัดเซ็ตตุ๊กตา - ประหยัด {DIY_DISCOUNT_PERCENT}% เมื่อซื้อเป็นเซต{" "}
-
+          Build your own doll set - save {DIY_DISCOUNT_PERCENT}% when you buy it as a set
         </p>
-
       </div>
 
       {/* ขั้นที่ 1: เลือกตุ๊กตา 1 ตัว */}
       <div className="mb-10 bg-cozy-cream p-5 sm:p-7">
         <h2 className="mb-5 text-xl font-medium text-cozy-green-dark">
-          Choose one doll <span className="text-sm font-normal text-cozy-muted">(เลือก 1 ตัว)</span>
+          Choose one doll
         </h2>
         <div className={OPTION_GRID}>
           {dolls.map((doll) => (
@@ -205,8 +203,7 @@ export default function Diy() {
       {/* ขั้นที่ 2: เลือกชุด 4 ชุด */}
       <div className="mb-10">
         <h2 className="mb-5 text-xl font-medium text-cozy-green-dark">
-          Choose {DIY_COSTUME_COUNT} Costumes{" "}
-          <span className="text-sm font-normal text-cozy-muted">(เลือก {DIY_COSTUME_COUNT} ชุด)</span>
+          Choose {DIY_COSTUME_COUNT} Costumes
         </h2>
         <div className={OPTION_GRID}>
           {costumes.map((costume) => {
@@ -226,65 +223,67 @@ export default function Diy() {
         </div>
       </div>
 
-      {/* ตัวอย่างเซตที่เลือก */}
-      <div className="mx-auto max-w-xl bg-cozy-cream p-6 text-center sm:p-8">
-        <h2 className="mb-5 font-logo text-3xl font-semibold text-cozy-green-dark">My DIY Costume Set</h2>
+      {/* ตัวอย่างเซตที่เลือก: กล่องกว้างเท่ากล่องเลือกตุ๊กตา แต่เนื้อหาข้างในกว้างแค่ max-w-xl อยู่ตรงกลาง */}
+      <div className="bg-cozy-cream p-6 text-center sm:p-8">
+        <div className="mx-auto max-w-xl">
+          <h2 className="mb-5 font-logo text-3xl font-semibold text-cozy-green-dark">My DIY Costume Set</h2>
 
-        {/* ตุ๊กตาที่เลือก */}
-        <div className="mx-auto mb-6 w-36">
-          {selectedDoll ? (
-            <ImageSlot src={selectedDoll.image} alt={selectedDoll.name} className="aspect-square w-full" />
-          ) : (
-            <div className="flex aspect-square w-full items-center justify-center border-2 border-dashed border-cozy-olive text-sm text-cozy-olive">
-              Choose a doll
-            </div>
-          )}
-          {selectedDoll && <p className="mt-2 text-sm font-bold text-cozy-green-dark">{selectedDoll.name}</p>}
-        </div>
+          {/* ตุ๊กตาที่เลือก */}
+          <div className="mx-auto mb-6 w-36">
+            {selectedDoll ? (
+              <ImageSlot src={selectedDoll.image} alt={selectedDoll.name} className="aspect-square w-full" />
+            ) : (
+              <div className="flex aspect-square w-full items-center justify-center border-2 border-dashed border-cozy-olive text-sm text-cozy-olive">
+                Choose a doll
+              </div>
+            )}
+            {selectedDoll && <p className="mt-2 text-sm font-bold text-cozy-green-dark">{selectedDoll.name}</p>}
+          </div>
 
-        {/* ช่องชุด 4 ช่อง */}
-        <div className="mb-6 grid grid-cols-4 gap-3">
-          {slots.map((costume, index) => {
-            if (costume) {
+          {/* ช่องชุด 4 ช่อง */}
+          <div className="mb-6 grid grid-cols-4 gap-3">
+            {slots.map((costume, index) => {
+              if (costume) {
+                return (
+                  <div key={index} className="min-w-0">
+                    <div className="flex aspect-square items-center justify-center bg-cozy-olive text-xl text-white">✓</div>
+                    <p className="mt-1 truncate text-xs text-cozy-green-dark">{costume.name}</p>
+                  </div>
+                )
+              }
               return (
                 <div key={index} className="min-w-0">
-                  <div className="flex aspect-square items-center justify-center bg-cozy-olive text-xl text-white">✓</div>
-                  <p className="mt-1 truncate text-xs text-cozy-green-dark">{costume.name}</p>
+                  <div className="flex aspect-square items-center justify-center border-2 border-dashed border-cozy-olive text-xl text-cozy-olive">
+                    +
+                  </div>
                 </div>
               )
-            }
-            return (
-              <div key={index} className="min-w-0">
-                <div className="flex aspect-square items-center justify-center border-2 border-dashed border-cozy-olive text-xl text-cozy-olive">
-                  +
-                </div>
-              </div>
-            )
-          })}
-        </div>
+            })}
+          </div>
 
-        {/* ราคาเซต */}
-        <div className="mb-4 flex items-baseline justify-between text-sm text-cozy-green-dark">
-          <span>
-            Set price ({costumeIds.length} / {DIY_COSTUME_COUNT} costumes)
-          </span>
-          <span>
-            {price.saved > 0 && (
-              <s className="mr-2 text-cozy-muted">{formatPrice(price.subtotal)} ฿</s>
-            )}
-            <strong className="text-xl">{formatPrice(price.total)} ฿</strong>
-          </span>
-        </div>
+          {/* ราคาเซต */}
+          <div className="mb-4 flex items-baseline justify-between text-sm text-cozy-green-dark">
+            <span>
+              Set price ({costumeIds.length} / {DIY_COSTUME_COUNT} costumes)
+            </span>
+            <span>
+              {price.saved > 0 && (
+                <s className="mr-2 text-cozy-muted">{formatPrice(price.subtotal)} ฿</s>
+              )}
+              <strong className="text-xl">{formatPrice(price.total)} ฿</strong>
+            </span>
+          </div>
 
-        <button
-          type="button"
-          onClick={handleAddSet}
-          disabled={!canAdd}
-          className={`${buttonClass("lg", "green")} w-full disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0`}
-        >
-          Add Set to Cart
-        </button>
-        {hint}
+          <button
+            type="button"
+            onClick={handleAddSet}
+            disabled={!canAdd}
+            className={`${buttonClass("lg", "green")} w-full disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0`}
+          >
+            Add Set to Cart
+          </button>
+          {hint}
+        </div>
       </div>
     </section>
   )

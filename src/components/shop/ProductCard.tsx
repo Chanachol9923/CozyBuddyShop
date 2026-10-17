@@ -33,7 +33,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         <div className="flex h-20 flex-col justify-center bg-cozy-cream px-4">
-          <h3 className="font-semibold text-cozy-green-dark group-hover:underline">{product.name}</h3>
+          <h3 className="font-semibold text-cozy-green-dark">{product.name}</h3>
           <p className="text-sm text-cozy-muted">{formatPrice(product.price)} ฿</p>
         </div>
       </Link>
