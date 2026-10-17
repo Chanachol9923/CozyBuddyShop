@@ -1,2 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Dancing+Script:wght@600;700&family=Lora:ital,wght@0,500;1,400;1,500&family=Montserrat:wght@600;700&family=Quicksand:wght@400;500;600;700&family=Roboto+Slab:wght@300;400&family=Sarabun:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* สี + ฟอนต์ของ Cozy Buddy ใช้เป็น class ได้ เช่น bg-cozy-cream, font-logo */
+@theme {
+  --color-cozy-cream: #f5f2e9;
+  --color-cozy-cream-dark: #ebe5d6;
+  --color-cozy-green: #3f4d36;
+  --color-cozy-green-dark: #2f3b27;
+  --color-cozy-green-soft: #525e4a;
+  --color-cozy-olive: #868159;
+  --color-cozy-olive-dark: #6f6b48;
+  --color-cozy-placeholder: #d9d9d9;
+  --color-cozy-text: #2b2b26;
+  --color-cozy-muted: #6e6c62;
+
+  --font-logo: "Dancing Script", cursive;
+  --font-cozy: "Quicksand", "Sarabun", system-ui, sans-serif;
+  --font-title: "Cinzel", "Sarabun", serif;
+  --font-tagline: "Lora", "Sarabun", serif;
+  --font-heading: "Montserrat", "Sarabun", sans-serif;
+  --font-slab: "Roboto Slab", "Sarabun", serif;
+}
