@@ -11,7 +11,8 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   // เลือกเฉพาะจำนวนชิ้น navbar จะ re-render ตอนจำนวนเปลี่ยนเท่านั้น
-  const cartCount = useCartStore((state) => countCartItems(state.items))
+  // นับสินค้าปกติ + เซต DIY (1 เซต = 1 ชิ้น)
+  const cartCount = useCartStore((state) => countCartItems(state.items) + state.diySets.length)
 
   return (
     // sticky top-0 = navbar ติดด้านบนตอน scroll

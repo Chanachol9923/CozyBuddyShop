@@ -1,16 +1,16 @@
 {
   "categories": [
-    { "id": "1", "name": "Dolls", "image": "/images/cat-dolls.jpg" },
-    { "id": "2", "name": "Animals", "image": "/images/cat-mini-buddies.jpg" },
-    { "id": "3", "name": "Clothing & Accessories", "image": "/images/cat-clothing.jpg" }
+    { "id": "1", "name": "Dolls", "image": "/images/home/category-doll.jpg" },
+    { "id": "2", "name": "Animals", "image": "/images/home/category-animal.jpg" },
+    { "id": "3", "name": "Clothing & Accessories", "image": "/images/home/category-costume.jpg" }
   ],
 
   "products": [
-    { "id": "1", "name": "Clover Bunny", "description": "ตุ๊กตากระต่ายแฮนด์เมด ขนนุ่ม ปลอดภัยสำหรับทุกวัย", "price": 2000, "image": "/images/clover-bunny.jpg", "type": "doll", "categoryId": "1", "isBestSeller": true },
-    { "id": "2", "name": "Willow Lamb", "description": "ตุ๊กตาลูกแกะผ้าขนนุ่ม กอดสบาย", "price": 2200, "image": "/images/willow-lamb.jpg", "type": "doll", "categoryId": "1", "isBestSeller": true },
+    { "id": "1", "name": "Clover Bunny", "description": "ตุ๊กตากระต่ายแฮนด์เมด ขนนุ่ม ปลอดภัยสำหรับทุกวัย", "price": 2000, "image": "/images/product/rabbit.jpg", "type": "doll", "categoryId": "1", "isBestSeller": true },
+    { "id": "2", "name": "Willow Lamb", "description": "ตุ๊กตาลูกแกะผ้าขนนุ่ม กอดสบาย", "price": 2200, "image": "/images/product/lamb.jpg", "type": "doll", "categoryId": "1", "isBestSeller": true },
     { "id": "3", "name": "Hazel Fawn", "description": "ตุ๊กตากวางน้อยตาหวาน ผ้าสีน้ำตาลอบอุ่น", "price": 2500, "image": "/images/hazel-fawn.jpg", "type": "doll", "categoryId": "1", "isBestSeller": false },
     { "id": "4", "name": "Maple Bear", "description": "ตุ๊กตาหมีน้อยสีเมเปิล เพื่อนคู่ใจยามหลับ", "price": 2300, "image": "/images/maple-bear.jpg", "type": "doll", "categoryId": "1", "isBestSeller": false },
-    { "id": "5", "name": "Fern Fox", "description": "ตุ๊กตาจิ้งจอกจากป่าเฟิร์น หางฟู", "price": 2400, "image": "/images/fern-fox.jpg", "type": "doll", "categoryId": "1", "isBestSeller": false },
+    { "id": "5", "name": "Fern Fox", "description": "ตุ๊กตาจิ้งจอกจากป่าเฟิร์น หางฟู", "price": 2400, "image": "/images/product/fox.jpg", "type": "doll", "categoryId": "1", "isBestSeller": false },
     { "id": "6", "name": "Acorn Mouse", "description": "ตุ๊กตาหนูน้อยขนาดมินิ พกพาง่าย", "price": 1200, "image": "/images/acorn-mouse.jpg", "type": "animal", "categoryId": "2", "isBestSeller": false },
     { "id": "7", "name": "Robin Bird", "description": "ตุ๊กตานกโรบินตัวจิ๋ว ขนาดมินิ", "price": 900, "image": "/images/robin-bird.jpg", "type": "animal", "categoryId": "2", "isBestSeller": false },
     { "id": "8", "name": "Petal Bonnet", "description": "หมวกบอนเน็ตลายกลีบดอกไม้ สำหรับตุ๊กตา", "price": 650, "image": "/images/petal-bonnet.jpg", "type": "costume&accessory", "categoryId": "3", "isBestSeller": true },
