@@ -1,4 +1,4 @@
-import type { CartItem, ProductFromAPI } from "../assets/types"
+import type { CartDiySet, CartItem, ProductFromAPI } from "../assets/types"
 import { DIY_DISCOUNT_PERCENT } from "../assets/types"
 
 // นับของตะก้า เอาไว้โชวบนcart icon)
@@ -59,7 +59,7 @@ export function calDiySet(
 
 
     for (const id of allIds) {
-        const product =products.find((p) => p.id === id)
+        const product =products.find((i) => i.id === id)
         if (product) {
 
             subtotal = subtotal + product.price
@@ -67,9 +67,23 @@ export function calDiySet(
         }
     }
 
-    const discount = (subtotal*DIY_DISCOUNT_PERCENT)/ 100
+    const discount = (subtotal*DIY_DISCOUNT_PERCENT)/100
     const total = Math.round(subtotal - discount)
 
 
     return { subtotal: subtotal, total: total, saved: subtotal - total }
+}
+
+
+// รวมราคาเซต DIY ทุกเซตในตะกร้า (ราคาหลังลดแล้ว)
+export function calDiySetsTotal(diySets: CartDiySet[], products: ProductFromAPI[]): number {
+    let total = 0
+
+    for (const diySet of diySets) {
+        const price = calDiySet(products, diySet.dollId, diySet.costumeIds)
+
+        total = total + price.total
+    }
+
+    return total
 }

@@ -20,4 +20,5 @@ export default function BestSellers() {
       {isError && <p className="mt-4 text-center text-sm text-cozy-muted">Couldn't load best sellers right now.</p>}
     </>
   )
+  
 }

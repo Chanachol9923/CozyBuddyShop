@@ -1,20 +1,24 @@
 
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { CartItem } from '../assets/types'
+import type { CartDiySet, CartItem } from '../assets/types'
 
 interface CartState {
-  items: CartItem[]                                       
-  addItem: (productId:string, quantity?:number) => void 
-  removeItem:(productId:string) => void                
-  setQuantity: (productId:string, quantity:number) => void 
-  clear: () =>void                                      
+  items: CartItem[]
+  diySets: CartDiySet[]                                   // เซต DIY ที่อยู่ในตะกร้า (เก็บแค่ id)
+  addItem: (productId:string, quantity?:number) => void
+  removeItem:(productId:string) => void
+  setQuantity: (productId:string, quantity:number) => void
+  addDiySet: (dollId:string, costumeIds:string[]) => void
+  removeDiySet: (id:string) => void
+  clear: () =>void
 }
 
 export const useCartStore = create<CartState>()(   
   persist(                                         
     (set) => ({                                    
-      items:[],                                   
+      items:[],
+      diySets:[],
 
       addItem: (productId, quantity = 1) =>
         set((state) => {                           
@@ -75,9 +79,49 @@ export const useCartStore = create<CartState>()(
           return { items: newItems }
         }),
 
-      clear: () => set({ items: [] }),
-      
+
+
+
+    // เพิ่มเซตdiy เก็บแค่ id ไม่เก็บราคา
+      addDiySet: (dollId, costumeIds) =>
+        set((state) => {
+          const newSets: CartDiySet[] = []
+
+          for (const diySet of state.diySets) {
+            newSets.push(diySet)
+            
+          }
+
+          newSets.push({ id: Date.now().toString(), dollId: dollId, costumeIds: costumeIds })
+
+          return { diySets: newSets }
+
+
+        }),
+
+
+      removeDiySet: (id) =>
+        set((state) => {
+          const newSets:CartDiySet[] = []
+
+          for (const diySet of state.diySets) {
+            if (diySet.id !== id) {
+              newSets.push(diySet)
+
+            }
+          }
+
+          return { diySets: newSets }
+
+        }),
+
+
+      clear: () => set({ items: [], diySets: [] }),
+
     }),
+
     { name:'cozybuddy-cart' } 
+
   )
+
 )

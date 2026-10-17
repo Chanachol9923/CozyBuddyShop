@@ -1,9 +1,10 @@
 import type { ReactNode } from "react"
+import CartDiySetRow from "../components/cart/CartDiySetRow"
 import CartItemRow from "../components/cart/CartItemRow"
 import CartSummary from "../components/cart/CartSummary"
 import { useProducts } from "../hooks/useProducts"
 import { useCartStore } from "../store/cartStore"
-import { calCartTotal } from "../utils/cart"
+import { calCartTotal, calDiySetsTotal } from "../utils/cart"
 
 const GRID_COLUMNS = "sm:grid-cols-[minmax(0,2.2fr)_1fr_1fr_3rem]"
 
@@ -12,6 +13,8 @@ export default function Cart() {
   const items = useCartStore((state) => state.items)
   const setQuantity = useCartStore((state) => state.setQuantity)
   const removeItem = useCartStore((state) => state.removeItem)
+  const diySets = useCartStore((state) => state.diySets)
+  const removeDiySet = useCartStore((state) => state.removeDiySet)
   const { data: products, isLoading, isError } = useProducts()
 
   // จับคู่ของในตะกร้ากับข้อมูลสินค้า
@@ -19,10 +22,29 @@ export default function Cart() {
     const product = products?.find((p) => p.id === item.productId)
     return product ? [{ product, quantity: item.quantity }] : []
   })
-  const subtotal = products ? calCartTotal(items, products) : 0
+  // ยอดรวม = สินค้าปกติ + เซต DIY (ราคามาจากข้อมูลสินค้าเสมอ)
+  let subtotal = 0
+  if (products) {
+    subtotal = calCartTotal(items, products) + calDiySetsTotal(diySets, products)
+  }
+
+  // แถวของเซต DIY ทุกเซตในตะกร้า
+  const diySetRows: ReactNode[] = []
+  if (products) {
+    for (const diySet of diySets) {
+      diySetRows.push(
+        <CartDiySetRow
+          key={diySet.id}
+          diySet={diySet}
+          products={products}
+          onRemove={() => removeDiySet(diySet.id)}
+        />,
+      )
+    }
+  }
 
   let content: ReactNode
-  if (items.length === 0) {
+  if (items.length === 0 && diySets.length === 0) {
     content = <p className="pb-8 text-center text-sm text-cozy-muted">Your cart is currently empty.</p>
   } else if (isLoading) {
     content = <p className="pb-8 text-center text-sm text-cozy-muted">Loading your cart...</p>
@@ -50,6 +72,7 @@ export default function Cart() {
               onRemove={() => removeItem(product.id)}
             />
           ))}
+          {diySetRows}
         </ul>
       </>
     )
