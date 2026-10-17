@@ -1,4 +1,4 @@
-import { Outlet } from "react-router"
+import { Outlet, ScrollRestoration } from "react-router"
 import Footer from "../components/layout/Footer"
 import Navbar from "../components/layout/Navbar"
 
@@ -12,6 +12,8 @@ export default function MainLayout() {
         <Outlet />
       </main>
       <Footer />
+      {/* เปลี่ยนหน้าแล้วเลื่อนขึ้นบนสุด (กด back จะกลับไปตำแหน่งเดิม) */}
+      <ScrollRestoration />
     </div>
   )
 }
