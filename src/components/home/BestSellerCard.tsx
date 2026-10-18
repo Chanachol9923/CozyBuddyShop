@@ -21,7 +21,7 @@ export default function BestSellerCard({ product }: BestSellerCardProps) {
   return (
     <article>
       <Link to={`/product/${product.id}`} className="group flex flex-col items-center gap-4 text-center">
-        <div className="w-full overflow-hidden">
+        <div className="w-full overflow-hidden border border-cozy-placeholder">
           <ImageSlot
             src={product.image}
             alt={product.name}
