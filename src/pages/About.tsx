@@ -1,6 +1,7 @@
 import designImage from "../assets/img/about/design.jpg"
 import workshopImage from "../assets/img/about/workshop.jpg"
 import AboutSection from "../components/about/AboutSection"
+import ApiAttribution from "../components/about/ApiAttribution"
 import TeamSection from "../components/about/TeamSection"
 
 export default function About() {
@@ -25,6 +26,8 @@ export default function About() {
         mind. We release many limited-edition dress-up collections throughout the year, and are proud to bring you the
         very finest in woodland fashions!
       </AboutSection>
+
+      <ApiAttribution />
 
       <TeamSection />
     </div>
