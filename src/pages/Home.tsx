@@ -20,10 +20,10 @@ const CATEGORY_CARDS: { id: string; buttonLabel: string; to: string; imageUrl: s
     imageClassName: "scale-130 origin-[47%_45%]",
   },
   {
-    id: "costume&accessory",
-    buttonLabel: "Choose Your Costume & Accessories",
+    id: "clothes&accessory",
+    buttonLabel: "Choose Your Clothes & Accessories",
     // เครื่องหมาย & ใน URL ต้องเขียนเป็น %26 ไม่งั้นจะถูกตัดเป็นพารามิเตอร์ใหม่
-    to: "/shop?sort=costume%26accessory",
+    to: "/shop?sort=clothes%26accessory",
     imageUrl: categoryCostume,
   },
 ]

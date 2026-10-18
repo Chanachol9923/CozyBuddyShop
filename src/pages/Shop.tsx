@@ -10,7 +10,7 @@ import { useProducts } from "../hooks/useProducts"
 // ตารางการ์ดสินค้า (class เดิมของ Ben)
 const GRID = "grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-7"
 
-const PRODUCT_TYPES: ProductType[] = ["doll", "animal", "costume&accessory"]
+const PRODUCT_TYPES: ProductType[] = ["doll", "animal", "clothes&accessory"]
 
 export default function Shop() {
   // อ่านชนิดที่เลือกจาก URL (เช่น /shop?sort=animal จากปุ่มหน้า Home) ถ้าไม่มีหรือค่าผิด ใช้ doll

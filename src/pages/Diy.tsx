@@ -82,7 +82,7 @@ export default function Diy() {
     if (product.type === "doll") {
       dolls.push(product)
     }
-    if (product.type === "costume&accessory") {
+    if (product.type === "clothes&accessory") {
       costumes.push(product)
     }
   }
@@ -246,7 +246,7 @@ export default function Diy() {
               if (costume) {
                 return (
                   <div key={index} className="min-w-0">
-                    <div className="flex aspect-square items-center justify-center bg-cozy-olive text-xl text-white">✓</div>
+                    <ImageSlot src={costume.image} alt={costume.name} className="aspect-square w-full" />
                     <p className="mt-1 truncate text-xs text-cozy-green-dark">{costume.name}</p>
                   </div>
                 )
