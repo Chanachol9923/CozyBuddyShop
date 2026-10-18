@@ -1,13 +1,10 @@
 import type { Category } from "../assets/types"
-
-const BASE_URL = "http://localhost:3001"
+import { loadDb } from "./db"
 
 
 export async function getCategories(): Promise<Category[]> {
 
-    const res = await fetch(`${BASE_URL}/categories`)
-    if (!res.ok) throw new Error("load categories maidai! try check api")
-    return res.json()
-
+    const db = await loadDb()
+    return db.categories
 
 }

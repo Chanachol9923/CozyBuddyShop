@@ -1,5 +1,4 @@
-// ลิงก์ JSON Server ของเรา (ยังไม่มี ใส่ URL แทน "#" ได้เลย)
-const JSON_SERVER_URL = "#"
+import { Link } from "react-router"
 
 const LINK_CLASS = "font-semibold text-cozy-green underline hover:text-cozy-green-dark"
 
@@ -16,9 +15,9 @@ export default function ApiAttribution() {
       </p>
       <p className="font-slab leading-7 text-cozy-muted">
         View our JSON Server{" "}
-        <a href={JSON_SERVER_URL} target="_blank" rel="noreferrer" className={LINK_CLASS}>
+        <Link to="/showall" className={LINK_CLASS}>
           HERE
-        </a>
+        </Link>
       </p>
     </section>
   )

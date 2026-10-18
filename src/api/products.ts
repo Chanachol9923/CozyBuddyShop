@@ -1,14 +1,11 @@
 import type { ProductFromAPI } from "../assets/types"
-
-const BASE_URL = "http://localhost:3001"
+import { loadDb } from "./db"
 
 
 export async function getProducts():Promise<ProductFromAPI[]> {
 
-    const res=await fetch(`${BASE_URL}/products`)
-    if (!res.ok) throw new Error("load products info maidai kub! try check api")
-    return res.json()
-
+    const db = await loadDb()
+    return db.products
 
 }
 
@@ -16,9 +13,14 @@ export async function getProducts():Promise<ProductFromAPI[]> {
 //ดึงอันเดียว
 export async function getProduct(id:string):Promise<ProductFromAPI> {
 
-    const res=await fetch(`${BASE_URL}/products/${id}`)
-    if (!res.ok) throw new Error("load products info maidai kub! try check apii")
-    return res.json()
+    const db = await loadDb()
 
+    for (const product of db.products) {
+        if (product.id === id) {
+            return product
+        }
+    }
+
+    throw new Error("product not found")
 
 }

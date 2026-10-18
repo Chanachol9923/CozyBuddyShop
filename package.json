@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "api": "json-server CozyBuddyDB.json --port 3001"
+    "api": "json-server public/CozyBuddyDB.json --port 3001"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",

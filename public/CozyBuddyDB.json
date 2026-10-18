@@ -1,8 +1,8 @@
 {
   "categories": [
-    { "id": "1", "name": "Dolls", "image": "/src/assets/img/home/category-doll.jpg" },
-    { "id": "2", "name": "Animals", "image": "/src/assets/img/home/category-animal.jpg" },
-    { "id": "3", "name": "Clothing & Accessories", "image": "/src/assets/img/home/category-custume.jpg" }
+    { "id": "1", "name": "Dolls", "image": "/images/home/category-doll.jpg" },
+    { "id": "2", "name": "Animals", "image": "/images/home/category-animal.jpg" },
+    { "id": "3", "name": "Clothing & Accessories", "image": "/images/home/category-costume.jpg" }
   ],
 
   "products": [
