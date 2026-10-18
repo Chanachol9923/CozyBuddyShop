@@ -5,7 +5,7 @@ import type { CartDiySet, CartItem } from '../assets/types'
 
 interface CartState {
   items: CartItem[]
-  diySets: CartDiySet[]                                   // เซต DIY ที่อยู่ในตะกร้า (เก็บแค่ id)
+  diySets: CartDiySet[]
   addItem: (productId:string, quantity?:number) => void
   removeItem:(productId:string) => void
   setQuantity: (productId:string, quantity:number) => void

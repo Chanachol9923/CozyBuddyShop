@@ -18,7 +18,7 @@ export default function ShowAll() {
       <section className="py-16 text-center">
         <p className="mb-4 text-cozy-muted">Error loading</p>
         <button type="button" onClick={() => refetch()} className={buttonClass("md", "green")}>
-          Try again
+          Try againn
         </button>
       </section>
     )

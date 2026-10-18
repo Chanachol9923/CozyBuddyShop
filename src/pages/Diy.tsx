@@ -8,7 +8,7 @@ import { useCartStore } from "../store/cartStore"
 import { calDiySet } from "../utils/cart"
 import { formatPrice } from "../utils/format"
 
-// ตารางตัวเลือก (ตุ๊กตา / ชุด)
+// ตารางตัวเลือก
 const OPTION_GRID = "grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
 
 interface OptionCardProps {
@@ -18,7 +18,6 @@ interface OptionCardProps {
   onClick: () => void
 }
 
-// การ์ดตัวเลือก 1 ใบ (กดเพื่อเลือก / เลิกเลือก)
 function OptionCard({ product, selected, disabled = false, onClick }: OptionCardProps) {
   let imageClass = "aspect-square w-full ring-1 ring-transparent transition hover:ring-cozy-olive"
   let nameClass = "text-sm text-cozy-muted"
@@ -42,14 +41,14 @@ function OptionCard({ product, selected, disabled = false, onClick }: OptionCard
 }
 
 export default function Diy() {
-  // ต้องเรียก hook ทั้งหมดไว้บนสุด ก่อน if / return ใดๆ
+  // ต้องเรียกhook ทั้งหมด
   const { data, isLoading, isError, refetch } = useProducts()
   const addDiySet = useCartStore((state) => state.addDiySet)
   const [dollId, setDollId] = useState<string | null>(null)
   const [costumeIds, setCostumeIds] = useState<string[]>([])
   const [added, setAdded] = useState(false)
 
-  // 1. กำลังโหลด
+
   if (isLoading) {
     const skeletons = [1, 2, 3, 4, 5, 6, 7, 8]
     return (
@@ -63,34 +62,36 @@ export default function Diy() {
     )
   }
 
-  // 2. โหลดไม่สำเร็จ
   if (isError || !data) {
     return (
       <section className="mx-auto max-w-xl px-4 py-16 text-center">
-        <p className="mb-4 text-cozy-muted">Couldn't load products. Please try again.</p>
+        <p className="mb-4 text-cozy-muted">load fail;</p>
         <button type="button" onClick={() => refetch()} className={buttonClass("md", "green")}>
-          Try again
+          try again
         </button>
       </section>
     )
   }
 
-  // 3. แยกสินค้าเป็นตุ๊กตา กับ ชุด
+
+
   const dolls: ProductFromAPI[] = []
   const costumes: ProductFromAPI[] = []
   for (const product of data) {
     if (product.type === "doll") {
       dolls.push(product)
+
     }
     if (product.type === "clothes&accessory") {
       costumes.push(product)
     }
   }
 
-  // 4. ตุ๊กตาที่เลือก (ใช้แสดงในส่วนตัวอย่างเซต)
+
+  
   let selectedDoll: ProductFromAPI | null = null
   if (dollId !== null) {
-    const found = data.find((p) => p.id === dollId)
+    const found = data.find((i) => i.id === dollId)
     if (found) {
       selectedDoll = found
     }

@@ -75,7 +75,6 @@ export function calDiySet(
 }
 
 
-// รวมราคาเซต DIY ทุกเซตในตะกร้า (ราคาหลังลดแล้ว)
 export function calDiySetsTotal(diySets: CartDiySet[], products: ProductFromAPI[]): number {
     let total = 0
 

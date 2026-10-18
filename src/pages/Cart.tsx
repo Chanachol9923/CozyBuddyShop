@@ -33,13 +33,11 @@ export default function Cart() {
     const product = products?.find((p) => p.id === item.productId)
     return product ? [{ product, quantity: item.quantity }] : []
   })
-  // ยอดรวม = สินค้าปกติ + เซต DIY (ราคามาจากข้อมูลสินค้าเสมอ)
   let subtotal = 0
   if (products) {
     subtotal = calCartTotal(items, products) + calDiySetsTotal(diySets, products)
   }
 
-  // แถวของเซต DIY ทุกเซตในตะกร้า
   const diySetRows: ReactNode[] = []
   if (products) {
     for (const diySet of diySets) {

@@ -6,12 +6,10 @@ import { useProduct } from "../hooks/useProduct"
 import { useCartStore } from "../store/cartStore"
 import { formatPrice } from "../utils/format"
 
-// class ของปุ่ม + / − (ใช้แบบเดียวกับหน้า Cart)
 const QTY_BUTTON =
   "flex size-9 items-center justify-center rounded-full text-xl text-cozy-green-dark transition hover:bg-black/10 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent"
 
 export default function Product() {
-  // ต้องเรียก hook ทั้งหมดไว้บนสุด ก่อน if / return ใดๆ
   const { id } = useParams()
   const { data: product, isLoading, isError, refetch } = useProduct(id)
   const addItem = useCartStore((state) => state.addItem)
@@ -19,7 +17,6 @@ export default function Product() {
   const [quantity, setQuantity] = useState(1)
   const [added, setAdded] = useState(false)
 
-  // 1. กำลังโหลด: แสดงโครงร่างสีเทากระพริบ
   if (isLoading) {
     return (
       <section className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-2 lg:gap-14 lg:py-16">
@@ -34,7 +31,6 @@ export default function Product() {
     )
   }
 
-  // 2. โหลดไม่สำเร็จ หรือไม่พบสินค้า: แจ้งข้อความ มีปุ่มลองใหม่ และปุ่มกลับไปหน้า Shop
   if (isError || !product) {
     return (
       <section className="mx-auto max-w-xl px-4 py-16 text-center">
@@ -54,7 +50,6 @@ export default function Product() {
     )
   }
 
-  // 3. ปุ่มต่างๆ (เขียนหลัง if ด้านบน เพื่อให้ TypeScript รู้ว่า product มีค่าแล้ว)
   const decrease = () => {
     setQuantity(quantity - 1)
     setAdded(false)
@@ -65,33 +60,27 @@ export default function Product() {
     setAdded(false)
   }
 
-  // เพิ่มลงตะกร้า แล้วแสดงข้อความยืนยันอยู่หน้าเดิม
   const handleAddToCart = () => {
     addItem(product.id, quantity)
     setAdded(true)
   }
 
-  // ซื้อทันที: เพิ่มลงตะกร้า แล้วไปหน้า Cart เลย
   const handleBuyNow = () => {
     addItem(product.id, quantity)
     navigate("/cart")
   }
 
-  // 4. แสดงรายละเอียดสินค้า
   return (
     <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:py-12">
 
       <div className="grid gap-8 md:grid-cols-2 lg:gap-14">
-        {/* รูปสินค้าขนาดใหญ่ */}
         <ImageSlot src={product.image} alt={product.name} className="aspect-square w-full" />
 
-        {/* ข้อมูลสินค้า */}
         <div>
           <h1 className="mb-3 text-3xl font-medium text-cozy-green-dark sm:text-4xl">{product.name}</h1>
           <p className="mb-6 text-cozy-muted">{product.description}</p>
           <p className="mb-6 text-2xl font-semibold text-cozy-green-dark">{formatPrice(product.price)} ฿</p>
 
-          {/* จำนวนสินค้า */}
           <div className="mb-6 flex items-center gap-4">
             <span className="text-sm text-cozy-green-dark">Quantity</span>
             <div className="flex items-center gap-1 rounded-full bg-cozy-cream-dark px-1">
@@ -111,7 +100,6 @@ export default function Product() {
             </div>
           </div>
 
-          {/* ปุ่มเพิ่มลงตะกร้า / ซื้อทันที */}
           <div className="flex flex-wrap gap-3">
             <button type="button" onClick={handleAddToCart} className={buttonClass("md", "olive")}>
               Add to cart
@@ -121,7 +109,6 @@ export default function Product() {
             </button>
           </div>
 
-          {/* ข้อความยืนยันหลังกด Add to cart */}
           {added && (
             <p role="status" className="mt-4 text-sm text-cozy-green-dark">
               Added to cart.{" "}

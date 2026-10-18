@@ -3,17 +3,15 @@ import { useSearchParams } from "react-router"
 import type { ProductFromAPI, ProductType } from "../assets/types"
 import ProductCard from "../components/shop/ProductCard"
 import ShopHero from "../components/shop/ShopHero"
-import SortSelect from "../components/shop/SortSelect"
+import SortSelect from "../components/shop/FilterSelect"
 import { buttonClass } from "../components/ui/buttonStyles"
 import { useProducts } from "../hooks/useProducts"
 
-// ตารางการ์ดสินค้า (class เดิมของ Ben)
 const GRID = "grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-7"
 
 const PRODUCT_TYPES: ProductType[] = ["doll", "animal", "clothes&accessory"]
 
 export default function Shop() {
-  // อ่านชนิดที่เลือกจาก URL (เช่น /shop?sort=animal จากปุ่มหน้า Home) ถ้าไม่มีหรือค่าผิด ใช้ doll
   const [searchParams, setSearchParams] = useSearchParams()
   const sortParam = searchParams.get("sort")
   let sortBy: ProductType = "doll"
@@ -23,15 +21,12 @@ export default function Shop() {
     }
   }
 
-  // เปลี่ยน Sort by แล้วเขียนค่าลง URL ด้วย (replace = ไม่เพิ่มประวัติให้ปุ่ม back,
-  // preventScrollReset = หน้าไม่เด้งขึ้นบนสุดตอนเปลี่ยนตัวเลือก)
   function setSortBy(value: ProductType) {
     setSearchParams({ sort: value }, { replace: true, preventScrollReset: true })
   }
 
   const { data, isLoading, isError, refetch } = useProducts()
 
-  // เรียงสินค้า: ชนิดที่เลือกขึ้นก่อน แล้วตามด้วยชนิดอื่น (ยังแสดงสินค้าทั้งหมดอยู่)
   const sortedProducts: ProductFromAPI[] = []
   if (data) {
     for (const product of data) {
@@ -47,10 +42,8 @@ export default function Shop() {
     }
   }
 
-  // เลือกว่าจะแสดงอะไรในส่วนรายการสินค้า
   let content: ReactNode
   if (isLoading) {
-    // กำลังโหลด: การ์ดเปล่ากระพริบ 8 ใบ (ProductCard ที่ไม่ส่ง product = กล่องเทา)
     const skeletons = [1, 2, 3, 4, 5, 6, 7, 8]
     content = (
       <div className={GRID}>
@@ -62,10 +55,9 @@ export default function Shop() {
       </div>
     )
   } else if (isError) {
-    // โหลดไม่สำเร็จ: แจ้งข้อความ และมีปุ่มลองใหม่
     content = (
       <div className="py-12 text-center">
-        <p className="mb-4 text-cozy-muted">โหลดสินค้าไม่สำเร็จ กรุณาลองใหม่อีกครั้ง</p>
+        <p className="mb-4 text-cozy-muted">loading fail</p>
         <button type="button" onClick={() => refetch()} className={buttonClass("md", "green")}>
           Try again
         </button>

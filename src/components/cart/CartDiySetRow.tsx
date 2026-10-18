@@ -9,12 +9,9 @@ interface CartDiySetRowProps {
   onRemove: () => void
 }
 
-// เซต DIY 1 แถวในตะกร้า (หน้าตาเหมือน CartItemRow แต่ไม่มีปุ่ม + / − เพราะซื้อเป็นเซตละ 1 ชุด)
 export default function CartDiySetRow({ diySet, products, onRemove }: CartDiySetRowProps) {
-  // หาตุ๊กตาของเซตนี้
   const doll = products.find((p) => p.id === diySet.dollId)
 
-  // หาชื่อชุดทั้งหมดของเซตนี้
   const costumeNames: string[] = []
   for (const costumeId of diySet.costumeIds) {
     const costume = products.find((p) => p.id === costumeId)
@@ -23,7 +20,6 @@ export default function CartDiySetRow({ diySet, products, onRemove }: CartDiySet
     }
   }
 
-  // ราคาเซต (คำนวณจากข้อมูลสินค้าทุกครั้ง ตะกร้าเก็บแค่ id)
   const price = calDiySet(products, diySet.dollId, diySet.costumeIds)
 
   let dollName = ""

@@ -11,7 +11,6 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   // เลือกเฉพาะจำนวนชิ้น navbar จะ re-render ตอนจำนวนเปลี่ยนเท่านั้น
-  // นับสินค้าปกติ + เซต DIY (1 เซต = 1 ชิ้น)
   const cartCount = useCartStore((state) => countCartItems(state.items) + state.diySets.length)
 
   return (
