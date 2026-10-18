@@ -3,7 +3,7 @@ import type { ProductType } from "../../assets/types"
 const SORT_OPTIONS: { value: ProductType; label: string }[] = [
   { value: "doll", label: "Doll" },
   { value: "animal", label: "Animal" },
-  { value: "costume&accessory", label: "Costume & Accessory" },
+  { value: "clothes&accessory", label: "Clothes & Accessory" },
 ]
 
 interface SortSelectProps {
