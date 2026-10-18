@@ -7,6 +7,7 @@ import Cart from "./pages/Cart"
 import About from "./pages/About"
 import Diy from "./pages/Diy"
 import CompleteCheckout from "./pages/CompleteCheckout"
+import ShowAll from "./pages/ShowAll"
 
 
 export const router = createBrowserRouter([
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/diy", element: <Diy /> },
       { path: "/complete-checkout", element: <CompleteCheckout /> },
+      { path: "/showall", element: <ShowAll /> },
 
     ],
   },

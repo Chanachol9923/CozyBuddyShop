@@ -19,6 +19,23 @@ export interface ProductFromAPI {
 
 }
 
+export interface ShowAllInAPI{
+
+    catid: string;
+    catname: string;
+    catimage: string;
+
+    pid: string;
+    pname: string;
+    pdescription: string;
+    pprice: number;
+    pimage: string;
+    ptype: ProductType;
+    pcategoryId:string;
+    pisBestSeller: boolean;
+
+
+}
 
 export interface CartItem{
     productId: string;
