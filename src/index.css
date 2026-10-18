@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Dancing+Script:wght@600;700&family=Lora:ital,wght@0,500;1,400;1,500&family=Montserrat:wght@600;700&family=Quicksand:wght@400;500;600;700&family=Roboto+Slab:wght@300;400&family=Sarabun:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
-@plugin "daisyui";
 
 /* สี + ฟอนต์ของ Cozy Buddy ใช้เป็น class ได้ เช่น bg-cozy-cream, font-logo */
 @theme {
