@@ -80,18 +80,6 @@ export default function Product() {
   // 4. แสดงรายละเอียดสินค้า
   return (
     <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:py-12">
-      {/* เส้นทางหน้า: Home / Shop / ชื่อสินค้า */}
-      <nav className="mb-6 text-sm text-cozy-muted">
-        <Link to="/" className="hover:text-cozy-green hover:underline">
-          Home
-        </Link>
-        {" / "}
-        <Link to="/shop" className="hover:text-cozy-green hover:underline">
-          Shop
-        </Link>
-        {" / "}
-        <span className="text-cozy-green-dark">{product.name}</span>
-      </nav>
 
       <div className="grid gap-8 md:grid-cols-2 lg:gap-14">
         {/* รูปสินค้าขนาดใหญ่ */}
@@ -125,20 +113,20 @@ export default function Product() {
 
           {/* ปุ่มเพิ่มลงตะกร้า / ซื้อทันที */}
           <div className="flex flex-wrap gap-3">
-            <button type="button" onClick={handleAddToCart} className={buttonClass("md", "green")}>
+            <button type="button" onClick={handleAddToCart} className={buttonClass("md", "olive")}>
               Add to cart
             </button>
-            <button type="button" onClick={handleBuyNow} className={buttonClass("md", "olive")}>
-              Buy now!
+            <button type="button" onClick={handleBuyNow} className={buttonClass("md", "green")}>
+              Buy now
             </button>
           </div>
 
           {/* ข้อความยืนยันหลังกด Add to cart */}
           {added && (
             <p role="status" className="mt-4 text-sm text-cozy-green-dark">
-              เพิ่มลงตะกร้าแล้ว{" "}
+              Added to cart.{" "}
               <Link to="/cart" className="font-semibold underline">
-                ดูตะกร้า
+                View cart
               </Link>
             </p>
           )}

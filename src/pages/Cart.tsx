@@ -1,4 +1,5 @@
 import type { ReactNode } from "react"
+import { useNavigate } from "react-router"
 import CartDiySetRow from "../components/cart/CartDiySetRow"
 import CartItemRow from "../components/cart/CartItemRow"
 import CartSummary from "../components/cart/CartSummary"
@@ -15,7 +16,17 @@ export default function Cart() {
   const removeItem = useCartStore((state) => state.removeItem)
   const diySets = useCartStore((state) => state.diySets)
   const removeDiySet = useCartStore((state) => state.removeDiySet)
+  const clear = useCartStore((state) => state.clear)
   const { data: products, isLoading, isError } = useProducts()
+  const navigate = useNavigate()
+
+  const isEmpty = items.length === 0 && diySets.length === 0
+
+  // Checkout: ล้างตะกร้า แล้วไปหน้าขอบคุณ
+  const handleCheckout = () => {
+    clear()
+    navigate("/complete-checkout")
+  }
 
   // จับคู่ของในตะกร้ากับข้อมูลสินค้า
   const lines = items.flatMap((item) => {
@@ -44,7 +55,7 @@ export default function Cart() {
   }
 
   let content: ReactNode
-  if (items.length === 0 && diySets.length === 0) {
+  if (isEmpty) {
     content = <p className="pb-8 text-center text-sm text-cozy-muted">Your cart is currently empty.</p>
   } else if (isLoading) {
     content = <p className="pb-8 text-center text-sm text-cozy-muted">Loading your cart...</p>
@@ -82,7 +93,7 @@ export default function Cart() {
     <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
       <h1 className="mb-8 text-3xl font-medium text-cozy-green-dark sm:text-4xl">Your Shopping Cart</h1>
       {content}
-      <CartSummary subtotal={subtotal} />
+      <CartSummary subtotal={subtotal} onCheckout={handleCheckout} checkoutDisabled={isEmpty} />
     </section>
   )
 }
