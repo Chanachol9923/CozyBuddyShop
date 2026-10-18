@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router"
 import type { ProductFromAPI, ProductType } from "../assets/types"
 import ProductCard from "../components/shop/ProductCard"
 import ShopHero from "../components/shop/ShopHero"
-import SortSelect from "../components/shop/FilterSelect"
+import FilterSelect, { type ProductFilter } from "../components/shop/FilterSelect"
 import { buttonClass } from "../components/ui/buttonStyles"
 import { useProducts } from "../hooks/useProducts"
 
@@ -13,31 +13,29 @@ const PRODUCT_TYPES: ProductType[] = ["doll", "animal", "clothes&accessory"]
 
 export default function Shop() {
   const [searchParams, setSearchParams] = useSearchParams()
-  const sortParam = searchParams.get("sort")
-  let sortBy: ProductType = "doll"
+  const typeParam = searchParams.get("type")
+  let filterBy: ProductFilter = "all"
   for (const type of PRODUCT_TYPES) {
-    if (type === sortParam) {
-      sortBy = type
+    if (type === typeParam) {
+      filterBy = type
     }
   }
 
-  function setSortBy(value: ProductType) {
-    setSearchParams({ sort: value }, { replace: true, preventScrollReset: true })
+  function setFilterBy(value: ProductFilter) {
+    if (value === "all") {
+      setSearchParams({}, { replace: true, preventScrollReset: true })
+    } else {
+      setSearchParams({ type: value }, { replace: true, preventScrollReset: true })
+    }
   }
 
   const { data, isLoading, isError, refetch } = useProducts()
 
-  const sortedProducts: ProductFromAPI[] = []
+  const filteredProducts: ProductFromAPI[] = []
   if (data) {
     for (const product of data) {
-      if (product.type === sortBy) {
-        sortedProducts.push(product)
-      }
-    }
-    for (const product of data) {
-      if (product.type !== sortBy) {
-        
-        sortedProducts.push(product)
+      if (filterBy === "all" || product.type === filterBy) {
+        filteredProducts.push(product)
       }
     }
   }
@@ -63,12 +61,12 @@ export default function Shop() {
         </button>
       </div>
     )
-  } else if (sortedProducts.length === 0) {
+  } else if (filteredProducts.length === 0) {
     content = <p className="py-12 text-center text-cozy-muted">No products found.</p>
   } else {
     content = (
       <div className={GRID}>
-        {sortedProducts.map((product) => (
+        {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
@@ -82,7 +80,7 @@ export default function Shop() {
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-14">
         <div className="mb-4 flex justify-end">
-          <SortSelect value={sortBy} onChange={setSortBy} />
+          <FilterSelect value={filterBy} onChange={setFilterBy} />
         </div>
 
         {content}

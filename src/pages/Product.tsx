@@ -74,7 +74,7 @@ export default function Product() {
     <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:py-12">
 
       <div className="grid gap-8 md:grid-cols-2 lg:gap-14">
-        <ImageSlot src={product.image} alt={product.name} className="aspect-square w-full" />
+        <ImageSlot src={product.image} alt={product.name} className="aspect-square w-full border border-cozy-placeholder" />
 
         <div>
           <h1 className="mb-3 text-3xl font-medium text-cozy-green-dark sm:text-4xl">{product.name}</h1>
