@@ -1,4 +1,4 @@
-export type ProductType = "doll" |"animal"| "costume&accessory";
+export type ProductType = "doll" |"animal"| "clothes&accessory";
 
 export interface Category {
     id: string;
