@@ -20,7 +20,7 @@ export default function CartItemRow({ product, quantity, onIncrease, onDecrease,
   return (
     <li className="grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-3 p-3 sm:grid-cols-[minmax(0,2.2fr)_1fr_1fr_3rem] sm:p-2.5">
       <div className="flex min-w-0 items-center gap-4 sm:gap-5">
-        <ImageSlot src={product.image} alt={product.name} className="size-16 shrink-0 sm:size-20" />
+        <ImageSlot src={product.image} alt={product.name} className="size-16 shrink-0 border border-cozy-placeholder sm:size-20" />
         <span className="text-cozy-green-dark sm:text-lg">{product.name}</span>
       </div>
 

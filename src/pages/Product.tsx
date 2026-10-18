@@ -83,7 +83,7 @@ export default function Product() {
 
       <div className="grid gap-8 md:grid-cols-2 lg:gap-14">
         {/* รูปสินค้าขนาดใหญ่ */}
-        <ImageSlot src={product.image} alt={product.name} className="aspect-square w-full" />
+        <ImageSlot src={product.image} alt={product.name} className="aspect-square w-full border border-cozy-placeholder" />
 
         {/* ข้อมูลสินค้า */}
         <div>
