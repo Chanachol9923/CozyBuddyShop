@@ -97,7 +97,8 @@ export default function Diy() {
     }
   }
 
-  // 5. ช่องชุด 4 ช่อง: ช่องที่เลือกแล้วมีชุด ช่องที่เหลือเป็น null (ช่องว่าง)
+
+  //4 ช่อง ช่องที่เหลือเป็นnull
   const slots: (ProductFromAPI | null)[] = []
   for (let i = 0; i < DIY_COSTUME_COUNT; i++) {
     let costume: ProductFromAPI | null = null
@@ -110,7 +111,7 @@ export default function Diy() {
     slots.push(costume)
   }
 
-  // 6. คำนวณราคาเซต (ตะกร้าเก็บแค่ id ราคามาจากข้อมูลสินค้าเสมอ)
+  //CalSetPrice
   let dollKey = ""
   if (dollId !== null) {
     dollKey = dollId
@@ -118,7 +119,7 @@ export default function Diy() {
   const price = calDiySet(data, dollKey, costumeIds)
   const canAdd = dollId !== null && costumeIds.length === DIY_COSTUME_COUNT
 
-  // 7. ฟังก์ชันของปุ่มต่างๆ
+  //ปุ่มห
   const selectDoll = (id: string) => {
     setDollId(id)
     setAdded(false)
@@ -127,7 +128,7 @@ export default function Diy() {
   const toggleCostume = (id: string) => {
     setAdded(false)
 
-    // เลือกอยู่แล้ว: เอาออก
+    //คลิกอีกรอบเอาออก
     if (costumeIds.includes(id)) {
       const rest: string[] = []
       for (const costumeId of costumeIds) {
@@ -139,7 +140,7 @@ export default function Diy() {
       return
     }
 
-    // เลือกครบแล้ว: ไม่รับเพิ่ม
+    //ครบ
     if (costumeIds.length >= DIY_COSTUME_COUNT) {
       return
     }
@@ -153,13 +154,14 @@ export default function Diy() {
     }
     addDiySet(dollId, costumeIds)
 
-    // ล้างตัวเลือก เพื่อให้จัดเซตใหม่ได้
+    //ล้าง
     setDollId(null)
     setCostumeIds([])
     setAdded(true)
   }
 
-  // 8. เลือกข้อความใต้ปุ่ม
+
+
   let hint: ReactNode = null
   if (added) {
     hint = (
@@ -178,7 +180,7 @@ export default function Diy() {
     )
   }
 
-  // 9. แสดงผล
+//แสดงผล
   return (
     <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:py-14">
       {/* หัวข้อ */}
@@ -189,7 +191,7 @@ export default function Diy() {
         </p>
       </div>
 
-      {/* ขั้นที่ 1: เลือกตุ๊กตา 1 ตัว */}
+      {/*เลือกตุ๊กต */}
       <div className="mb-10 bg-cozy-cream p-5 sm:p-7">
         <h2 className="mb-5 text-xl font-medium text-cozy-green-dark">
           Choose one doll
@@ -201,7 +203,7 @@ export default function Diy() {
         </div>
       </div>
 
-      {/* ขั้นที่ 2: เลือกชุด 4 ชุด */}
+      {/* ชุด */}
       <div className="mb-10">
         <h2 className="mb-5 text-xl font-medium text-cozy-green-dark">
           Choose {DIY_COSTUME_COUNT} Costumes
@@ -209,7 +211,7 @@ export default function Diy() {
         <div className={OPTION_GRID}>
           {costumes.map((costume) => {
             const selected = costumeIds.includes(costume.id)
-            // เลือกครบแล้ว ชุดที่ยังไม่ได้เลือกจะกดไม่ได้
+            // ครบ
             const full = costumeIds.length >= DIY_COSTUME_COUNT && !selected
             return (
               <OptionCard
@@ -224,12 +226,12 @@ export default function Diy() {
         </div>
       </div>
 
-      {/* ตัวอย่างเซตที่เลือก: กล่องกว้างเท่ากล่องเลือกตุ๊กตา แต่เนื้อหาข้างในกว้างแค่ max-w-xl อยู่ตรงกลาง */}
+      {}
       <div className="bg-cozy-cream p-6 text-center sm:p-8">
         <div className="mx-auto max-w-xl">
           <h2 className="mb-5 font-logo text-3xl font-semibold text-cozy-green-dark">My DIY Costume Set</h2>
 
-          {/* ตุ๊กตาที่เลือก */}
+          {/*ตุ๊กตาที่เลือก */}
           <div className="mx-auto mb-6 w-36">
             {selectedDoll ? (
               <ImageSlot src={selectedDoll.image} alt={selectedDoll.name} className="aspect-square w-full" />
@@ -241,7 +243,7 @@ export default function Diy() {
             {selectedDoll && <p className="mt-2 text-sm font-bold text-cozy-green-dark">{selectedDoll.name}</p>}
           </div>
 
-          {/* ช่องชุด 4 ช่อง */}
+          {/* ช่องชุด*/}
           <div className="mb-6 grid grid-cols-4 gap-3">
             {slots.map((costume, index) => {
               if (costume) {
@@ -262,7 +264,7 @@ export default function Diy() {
             })}
           </div>
 
-          {/* ราคาเซต */}
+          {/*ราคา*/}
           <div className="mb-4 flex items-baseline justify-between text-sm text-cozy-green-dark">
             <span>
               Set price ({costumeIds.length} / {DIY_COSTUME_COUNT} costumes)
